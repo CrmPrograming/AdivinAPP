@@ -21,15 +21,33 @@ public class AdivinaApp extends Application {
 	private final int MIN = 0;
 	private final int MAX = 100;
 	
+	/**
+	 * Método encargado de inicializar la partida a valores por defecto
+	 * y generar un nuevo número aleatorio.
+	 */
 	private void inicializarPartida() {
 		generarNumero();
 		intentos = 0;
 	}
 	
+	/**
+	 * Método encargado de generar un número aleatorio entre el mínimo
+	 * y el máximo especificados en los atributos de la clase.
+	 */
 	private void generarNumero() {
 		numAleatorio = (int) (Math.random() * (MAX - MIN + 1) + MIN);		
 	}
 	
+	/**
+	 * Método encargado de mostrar la ventana de fallo. Según
+	 * qué modo se le especifique indicará:
+	 * 
+	 * - 1 si el número a adivinar es menor
+	 * - 0 si el número a adivinar es mayor
+	 * 
+	 * @param modo Entero con el tipo de fallo cometido
+	 * @param numero Entero con el número dado por el usuario
+	 */
 	private void mostrarFallo(int modo, int numero) {
 		String mensajeModo = "El número a adivinar es " + ((modo == 1)? "menor" : "mayor") + " que " + numero;
 		Alert alert = new Alert(AlertType.WARNING);
@@ -40,6 +58,9 @@ public class AdivinaApp extends Application {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Método encargado de mostrar la ventana de error.
+	 */
 	private void mostrarError() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("AdivinApp");
@@ -49,6 +70,9 @@ public class AdivinaApp extends Application {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Método encargado de mostrar la ventana de acierto.
+	 */
 	private void mostrarAcierto() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("AdivinApp");
@@ -59,6 +83,12 @@ public class AdivinaApp extends Application {
 		alert.showAndWait();
 	}
 	
+	/**
+	 * Método encargado de comprobar si el número indicado
+	 * es el que debe adivinar o es otro.
+	 * 
+	 * @param e Evento asociado al hacer click en el botón
+	 */
 	private void onComprobarButtonAction(ActionEvent e) {
 		intentos++;
 		try {
@@ -73,10 +103,16 @@ public class AdivinaApp extends Application {
 			}
 		} catch (NumberFormatException error) {
 			mostrarError();
-		}
-			
+		}	
 	}
-			
+
+	/**
+	 * Sobreescritura del método start de la clase Application con la
+	 * inicialización de la interfaz gráfica de la aplicación.
+	 * 
+	 * @param primaryStage
+	 * @throws Exception
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		inicializarPartida();
@@ -107,6 +143,11 @@ public class AdivinaApp extends Application {
 		primaryStage.show();
 	}
 	
+	/**
+	 * Método principal encargado de lanzar la ventana de la aplicación.
+	 * 
+	 * @param args Array con los parámetros de entrada
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
