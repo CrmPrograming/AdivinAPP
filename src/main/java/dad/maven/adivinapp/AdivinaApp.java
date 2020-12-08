@@ -22,8 +22,8 @@ public class AdivinaApp extends Application {
 	private final int MAX = 100;
 	
 	/**
-	 * Método encargado de inicializar la partida a valores por defecto
-	 * y generar un nuevo número aleatorio.
+	 * MÃ©todo encargado de inicializar la partida a valores por defecto
+	 * y generar un nuevo nÃºmero aleatorio.
 	 */
 	private void inicializarPartida() {
 		generarNumero();
@@ -31,63 +31,63 @@ public class AdivinaApp extends Application {
 	}
 	
 	/**
-	 * Método encargado de generar un número aleatorio entre el mínimo
-	 * y el máximo especificados en los atributos de la clase.
+	 * MÃ©todo encargado de generar un nÃºmero aleatorio entre el mÃ­nimo
+	 * y el mÃ¡ximo especificados en los atributos de la clase.
 	 */
 	private void generarNumero() {
 		numAleatorio = (int) (Math.random() * (MAX - MIN + 1) + MIN);		
 	}
 	
 	/**
-	 * Método encargado de mostrar la ventana de fallo. Según
-	 * qué modo se le especifique indicará:
+	 * MÃ©todo encargado de mostrar la ventana de fallo. SegÃºn
+	 * quÃ© modo se le especifique indicarÃ¡:
 	 * 
-	 * - 1 si el número a adivinar es menor
-	 * - 0 si el número a adivinar es mayor
+	 * - 1 si el nÃºmero a adivinar es menor
+	 * - 0 si el nÃºmero a adivinar es mayor
 	 * 
 	 * @param modo Entero con el tipo de fallo cometido
-	 * @param numero Entero con el número dado por el usuario
+	 * @param numero Entero con el nÃºmero dado por el usuario
 	 */
 	private void mostrarFallo(int modo, int numero) {
-		String mensajeModo = "El número a adivinar es " + ((modo == 1)? "menor" : "mayor") + " que " + numero;
+		String mensajeModo = "El nÃºmero a adivinar es " + ((modo == 1)? "menor" : "mayor") + " que " + numero;
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setTitle("AdivinaApp");
-		alert.setHeaderText("¡Has fallado!");
+		alert.setHeaderText("Â¡Has fallado!");
 		alert.setContentText(mensajeModo + "\n\nVuelve a intentarlo.");
 
 		alert.showAndWait();
 	}
 	
 	/**
-	 * Método encargado de mostrar la ventana de error.
+	 * MÃ©todo encargado de mostrar la ventana de error.
 	 */
 	private void mostrarError() {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("AdivinApp");
 		alert.setHeaderText("Error");
-		alert.setContentText("El número introducido no es válido");
+		alert.setContentText("El nÃºmero introducido no es vÃ¡lido");
 
 		alert.showAndWait();
 	}
 	
 	/**
-	 * Método encargado de mostrar la ventana de acierto.
+	 * Mï¿½todo encargado de mostrar la ventana de acierto.
 	 */
 	private void mostrarAcierto() {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("AdivinApp");
-		alert.setHeaderText("¡Has ganado!");
-		alert.setContentText("Sólo has necesitado " + intentos + " intentos.\n\n" +
+		alert.setHeaderText("Â¡Has ganado!");
+		alert.setContentText("SÃ³lo has necesitado " + intentos + " intentos.\n\n" +
 							 "Vuelve a jugar y hazlo mejor.");
 
 		alert.showAndWait();
 	}
 	
 	/**
-	 * Método encargado de comprobar si el número indicado
+	 * MÃ©todo encargado de comprobar si el nÃºmero indicado
 	 * es el que debe adivinar o es otro.
 	 * 
-	 * @param e Evento asociado al hacer click en el botón
+	 * @param e Evento asociado al hacer click en el botÃ³n
 	 */
 	private void onComprobarButtonAction(ActionEvent e) {
 		intentos++;
@@ -107,8 +107,8 @@ public class AdivinaApp extends Application {
 	}
 
 	/**
-	 * Sobreescritura del método start de la clase Application con la
-	 * inicialización de la interfaz gráfica de la aplicación.
+	 * Sobreescritura del mÃ©todo start de la clase Application con la
+	 * inicializaciï¿½n de la interfaz grÃ¡fica de la aplicaciÃ³n.
 	 * 
 	 * @param primaryStage
 	 * @throws Exception
@@ -119,12 +119,12 @@ public class AdivinaApp extends Application {
 		
 		tfNumero = new TextField();
 		tfNumero.setPrefColumnCount(3);
-		tfNumero.setPromptText("Indique el número a adivinar");
+		tfNumero.setPromptText("Indique el nÃºmero a adivinar");
 		tfNumero.setMaxWidth(100);
 		tfNumero.setAlignment(Pos.CENTER);
 		
 		Label lbIntroduccion = new Label();
-		lbIntroduccion.setText("Introduce un número del 1 al 100");
+		lbIntroduccion.setText("Introduce un nÃºmero del 1 al 100");
 		
 		btComprobar = new Button();
 		btComprobar.setText("Comprobar");
@@ -144,9 +144,9 @@ public class AdivinaApp extends Application {
 	}
 	
 	/**
-	 * Método principal encargado de lanzar la ventana de la aplicación.
+	 * MÃ©todo principal encargado de lanzar la ventana de la aplicaciÃ³n.
 	 * 
-	 * @param args Array con los parámetros de entrada
+	 * @param args Array con los parÃ¡metros de entrada
 	 */
 	public static void main(String[] args) {
 		launch(args);

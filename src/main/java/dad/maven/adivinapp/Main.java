@@ -3,7 +3,7 @@ package dad.maven.adivinapp;
 public class Main {
 
 	/**
-	 * Método encargado de iniciar la aplicación.
+	 * MÃ©todo encargado de iniciar la aplicaciÃ³n.
 	 * 
 	 * @param args
 	 */
